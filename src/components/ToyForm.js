@@ -20,7 +20,6 @@ function ToyForm({ addNewToys }) {
   const handleSubmit = (event) => {
     event.preventDefault()
     addNewToys(newToy)
-    // console.log(newToy)
   }
 
   return (

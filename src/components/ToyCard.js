@@ -1,8 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 
 function ToyCard({ id, name, image, likes, onDelete, toys, setToys }) {
-  const [newLikes, setNewLikes] = useState(likes)
-
   function handleDelete() {
     fetch(`http://localhost:3001/toys/${id}`, {
       method: "DELETE",
@@ -20,8 +18,7 @@ function ToyCard({ id, name, image, likes, onDelete, toys, setToys }) {
 
   function addLikes(event) {
     event.preventDefault()
-    const updatedLikes = newLikes + 1
-    setNewLikes(updatedLikes)
+    const updatedLikes = likes + 1
 
     fetch(`http://localhost:3001/toys/${id}`, {
       method: "PATCH",
@@ -40,7 +37,7 @@ function ToyCard({ id, name, image, likes, onDelete, toys, setToys }) {
     <div className="card">
       <h2>{name}</h2>
       <img src={image} alt={name} className="toy-avatar" />
-      <p>{newLikes} Likes </p>
+      <p>{likes} Likes </p>
       <button className="like-btn" onClick={addLikes}>
         Like {"<3"}
       </button>

@@ -45,7 +45,11 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
-      <ToyContainer toys={toys} deleteToy={deleteDonatedToy} />
+      <ToyContainer
+        toys={toys}
+        setToys={setToys}
+        deleteToy={deleteDonatedToy}
+      />
     </>
   )
 }
